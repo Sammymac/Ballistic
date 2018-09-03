@@ -1,51 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
     // Public variables
     public float speed;
+    public GameObject cursorTemplate;
+    public Camera cam;
 
     // Private variables
     private Rigidbody2D rb;
-    private Collider2D col;
     private Vector2 mousePos;
     private bool hasFired = false;
+    private bool aiming = false;
+    private GameObject cursor;
 
     // Use this for initialization
     void Start() {
+        Cursor.visible = false;
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            print("Mouse pressed");
-            mousePos = Input.mousePosition;
-        } else if (Input.GetMouseButtonUp(0)) {
-            Vector3 mouseWorldPos3D = Camera.main.ScreenToWorldPoint(mousePos);
-            Vector2 mouseWorldPos = new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
-            print("Mousepos:" + mouseWorldPos + ", bounds:" + col.OverlapPoint(mouseWorldPos));
-            if (col.bounds.Contains(mouseWorldPos)) {
+        if (rb.IsSleeping()) { 
+            if (Input.GetMouseButtonDown(0)) {
+                mousePos = Input.mousePosition;
+                aiming = true;
+            } else if (Input.GetMouseButtonUp(0)) {
                 hasFired = true;
-                print("Fired");
             }
-            print("Mouse released");
         }
     }
 
     private void FixedUpdate() {
         if (hasFired) {
             Vector2 movement = Input.mousePosition;
-            Vector2 difference = movement - mousePos;
+            Vector2 difference = movement - new Vector2(transform.position.x, transform.position.y);
 
             print("Movement:" + movement);
             print("Difference:" + difference);
             rb.AddForce(difference * speed, ForceMode2D.Impulse);
             hasFired = false;
+            aiming = false;
+            Destroy(cursor);
+        } else {
+            if (aiming && cursor == null) {
+                Vector2 currentPos = new Vector3(transform.position.x, transform.position.y);
+                Vector2 mousePosTemp = cam.ScreenToWorldPoint(mousePos);
+                Vector2 halfwayPoint = mousePosTemp + ((currentPos - mousePosTemp) /2);
+                cursor = Instantiate(cursorTemplate, halfwayPoint, Quaternion.identity);
+                print("Created cursor at " + halfwayPoint);
+                print("CurrentPos: " + currentPos);
+                print("mousePos: " + mousePos);
+            }
         }
     }
-    
+        
 }

@@ -54,7 +54,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 30
+  m_Mass: 40
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 0
@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  cursorTemplate: {fileID: 1725621227277828, guid: 88661b2882eb2c049be0b2ded9d21d7e,
+    type: 2}
+  cam: {fileID: 20247627561774692, guid: e1e6b682dc974314cb534532f6465b52, type: 2}
 --- !u!212 &212311201061184002
 SpriteRenderer:
   m_ObjectHideFlags: 1
