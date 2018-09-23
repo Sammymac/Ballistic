@@ -60,10 +60,7 @@ public class PlayerController : MonoBehaviour
         
         if (aiming) {
             if (cursor == null) {
-                print("New cursor");
                 cursor = Instantiate(cursorTemplate, currentPlayerPosition, Quaternion.identity);
-                print("currentPlayerPosition:"+currentPlayerPosition);
-                print("currentMousePosition:"+currentMousePosition);
             }
             
             RotateCursorToMousePos();
