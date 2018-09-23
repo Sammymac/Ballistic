@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d153883366c8c3409c6cea5dc0bf54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 100
   cursorTemplate: {fileID: 1725621227277828, guid: 88661b2882eb2c049be0b2ded9d21d7e,
     type: 2}
   cam: {fileID: 20247627561774692, guid: e1e6b682dc974314cb534532f6465b52, type: 2}
