@@ -47,6 +47,9 @@ TagManager:
   - name: Floor
     uniqueID: 108958683
     locked: 0
+  - name: CursorLayer
+    uniqueID: 3375529699
+    locked: 0
   - name: BlockingLayer
     uniqueID: 1017741841
     locked: 0
