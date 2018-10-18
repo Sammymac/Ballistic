@@ -48,6 +48,9 @@ TagManager:
   - name: Pocket
     uniqueID: 1454569333
     locked: 0
+  - name: Wall Layer
+    uniqueID: 1269904047
+    locked: 0
   - name: CursorLayer
     uniqueID: 3375529699
     locked: 0
