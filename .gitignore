@@ -271,3 +271,7 @@ __pycache__/
 #Temp
 **/Temp
 **/Library/EditorInstance.json
+
+#Other
+**/Ballistic_Data
+Ballistic.exe
