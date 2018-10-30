@@ -89,8 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d153883366c8c3409c6cea5dc0bf54b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 0
   speed: 100
   cursorTemplate: {fileID: 1725621227277828, guid: 88661b2882eb2c049be0b2ded9d21d7e,
+    type: 2}
+  gameController: {fileID: 114205474522534426, guid: cf9593fd3d624774e9c0966b375c6ed3,
     type: 2}
 --- !u!212 &212311201061184002
 SpriteRenderer:
@@ -124,7 +127,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1017741841
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1039d1cd8cb64d1499039df6e0575eac, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}

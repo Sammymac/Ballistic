@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public static GameController instance = null;
     private int level = 1;
+    private int maxLevel = 2;
 
-    public Text gameOverText;
+    private Dictionary<int, int> playerScores = new Dictionary<int, int>(); 
 
     private GameObject[] players;
     private Boolean isGameOver = false;
@@ -25,22 +26,44 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        
     }
 
     // Update is called once per frame
     void Update() {
-        if (!isGameOver && GameObject.FindGameObjectsWithTag("Player").Length <= 0) {
-            Instantiate(gameOverText);
-            isGameOver = true;
+        players = GameObject.FindGameObjectsWithTag("Player");
+        
+        if (Input.GetMouseButtonDown(1)) {    // FIXME FOR DEBUG ONLY
+            players = new GameObject[0];
+            print("Finished Level in Debug mode");
         }
+         
+        if (!isGameOver && players.Length <= 0) {
+            if (level >= maxLevel) {
+                isGameOver = true;
+                Destroy(gameObject);
+                SceneManager.LoadScene("Menu");
+            }
+            else {
+                GotoNextLevel();
+            }
+            
+        }
+        
     }
     
-    public void GotoLevel1() {
-        SceneManager.LoadScene("level1");
+    public void GotoNextLevel() {
+        level++;
+        SceneManager.LoadScene("level" + level);
     }
 
-    public void GotoLevel2() {
-        SceneManager.LoadScene("level2");
+    public void incrementCurrentScore(int player) {
+        if (!playerScores.ContainsKey(player)) {
+            playerScores.Add(player, 0);    
+        }
+
+        playerScores[player]++;
+        print("Score:"+playerScores[player]);
     }
+    
 }

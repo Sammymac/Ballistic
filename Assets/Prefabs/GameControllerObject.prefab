@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4058187296716646}
   - component: {fileID: 114205474522534426}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: GameControllerObject
   m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,5 +51,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4575013e2a4df40b521d0177ccd4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 114972518486405394, guid: a6907f49de847e14dad9b92efe30683b,
-    type: 2}
