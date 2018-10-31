@@ -64,6 +64,15 @@ public class GameController : MonoBehaviour {
 
         playerScores[player]++;
         print("Score:"+playerScores[player]);
+        
+        var scores = GameObject.FindGameObjectsWithTag("Score");
+
+        foreach (var score in scores) {
+            int playerScore = 0;
+            if (score.name.Equals(player.ToString()) && playerScores.TryGetValue(player, out playerScore)) {
+                score.GetComponent<TextMesh>().text = playerScore.ToString();
+            }
+        }
     }
     
 }

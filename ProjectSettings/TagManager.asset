@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pocket
   - Main Menu
+  - Score
   layers:
   - Default
   - TransparentFX
