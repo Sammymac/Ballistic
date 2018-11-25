@@ -93,7 +93,7 @@ MonoBehaviour:
   speed: 100
   cursorTemplate: {fileID: 1725621227277828, guid: 88661b2882eb2c049be0b2ded9d21d7e,
     type: 2}
-  gameController: {fileID: 114205474522534426, guid: cf9593fd3d624774e9c0966b375c6ed3,
+  gameController: {fileID: 114064677112580732, guid: ec1ffaed6463d3f45962656a687f2ed2,
     type: 2}
 --- !u!212 &212311201061184002
 SpriteRenderer:
