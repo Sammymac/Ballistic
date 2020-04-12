@@ -18,8 +18,4 @@ public class MainMenuController : MonoBehaviour {
 	public void GotoLevel1() {
 		SceneManager.LoadScene("level1");
 	}
-
-	public void GotoLevel2() {
-		SceneManager.LoadScene("level2");
-	}
 }
