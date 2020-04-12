@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             mousePos = Input.mousePosition;
-            if (IsClickWithinPlayerRadius(mousePos)) {
+            if (IsClickWithinPlayerRadius(mousePos)) {                
                 aiming = true;
             }
         }
@@ -86,8 +86,11 @@ public class PlayerController : MonoBehaviour {
     private bool IsClickWithinPlayerRadius(Vector2 position) {
         var mouseWorldPos3D = cam.ScreenToWorldPoint(position);
         var mouseWorldPos = new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
+        print(col.bounds);
         print(mouseWorldPos);
-        return col.bounds.Contains(mouseWorldPos);
+        bool contains = col.bounds.Contains(mouseWorldPos);
+        print(contains);
+        return contains;
     }
 
 }
