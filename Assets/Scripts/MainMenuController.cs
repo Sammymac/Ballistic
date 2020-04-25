@@ -18,4 +18,14 @@ public class MainMenuController : MonoBehaviour {
 	public void GotoLevel1() {
 		SceneManager.LoadScene("level1");
 	}
+
+    public void GotoLevelEditor()
+    {
+        SceneManager.LoadScene("level_editor");
+    }
+
+    public void GotoCustomLevels()
+    {
+        SceneManager.LoadScene("level_custom");
+    }
 }
